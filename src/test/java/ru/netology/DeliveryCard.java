@@ -34,8 +34,8 @@ class DeliveryCard {
     @Test
     @DisplayName("Должен забронировать встречу при вводе валидных данных")
     void shouldRegisterCardDelivery() {
-        $("span[data-test-id='city'] input").setValue("Пе");
-        $$("div.popup__content div").find(exactText("Пермь")).click();
+        $("span[data-test-id='city'] input").setValue("Ка");
+        $$("div.popup__content div").find(exactText("Казань")).click();
         $("span[data-test-id='date'] button").click();
 
         while (!$("div.calendar__name").getText().equals(month)) {
@@ -43,8 +43,8 @@ class DeliveryCard {
         }
 
         $$("table.calendar__layout td").find(text(day)).click();
-        $("span[data-test-id='name'] input").setValue("Иванов Иван");
-        $("span[data-test-id='phone'] input").setValue("+79150000000");
+        $("span[data-test-id='name'] input").setValue("Кузьмин Евгений");
+        $("span[data-test-id='phone'] input").setValue("+79150560000");
         $("label[data-test-id='agreement']").click();
         $$("button").find(exactText("Забронировать")).click();
         $("div.notification__content").waitUntil(text("Встреча успешно забронирована на " + date),
